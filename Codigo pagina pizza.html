@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzas los 3 pollos</title>
+    <style>
+        .recuadro_nosotros {
+
+            background-color: #ca6232;
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+            font-size: 50px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-image: linear-gradient(to bottom, rgb(235, 169, 72), rgb(235, 124, 39));
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            padding-top: 100px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ca6232;
+            text-align: center;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+        nav a {
+            font-size: 30px;
+            color: #70280c;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s ease-in-out;
+            margin: 0 20px;
+        }
+        nav a:hover {
+            color: rgb(54, 19, 11);
+            transform: scale(1.2);
+        }
+        h1 {
+            font-size: 4rem;
+            color: #70280c;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: rgb(112, 40, 12);
+            text-align: center; 
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .Imagen_de_pizza1 {
+            animation: spin 9s linear infinite;
+            max-width: 70%;
+            transition: opacity 0.5s ease;
+        }
+        
+        @keyframes spin{
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .menu_lista {
+            font-size: 50px;
+            list-style: none;
+            padding: 0;
+        }
+
+
+        .menu_lista li {
+            font-size: 50px;
+            color: rgb(51, 21, 9);
+            text-align: center;
+            margin: 10px 0;
+
+        }
+
+        .contenedor-pizza {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+
+        }
+
+        .capa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+        }
+
+        .ingrediente {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        
+        <a href="#menu">Nuestro menu</a>
+        <a href="#nosotros">Acerca de nosotros</a>
+    </nav> 
+    <section id="inicio"> 
+        <h1>PRUEBA NUESTRAS RICAS PIZZAS</h1> 
+        <div style="text-align: center;">
+            <img src="https://www.zoopizza.com.mx/img/carta/Pepperoni.png" alt="imagen numero 1 de las pizzas" class="Imagen_de_pizza1" id="pizza">
+          </div>
+    </section> 
+    <section id="arma-tu-pizza">
+        <h2>ARMA TU PIZZA</h2>
+    
+        <!-- 1. Botones de Paquetes Rápidos -->
+        <div class="paquetes">
+            <button onclick="cargarPaquete('hawaiana')">Paquete Hawaiana</button>
+            <button onclick="cargarPaquete('carnivora')">Paquete Carnívora</button>
+            <button onclick="limpiarPizza()">Limpiar Pizza</button>
+        </div>
+    
+        <!-- El plato con la pizza -->
+        <div class="contenedor-pizza">
+            <img src="masa.png" class="capa base" alt="Masa base">
+    
+            <img src="chorizo.png" id="capa-chorizo" class="capa ingrediente" alt="Chorizo">
+            <img src="jamon.png" id="capa-jamon" class="capa ingrediente" alt="Jamón">
+            <img src="pepperoni.png" id="capa-pepperoni" class="capa ingrediente" alt="Pepperoni">
+            <img src="pimiento.png" id="capa-pimiento" class="capa ingrediente" alt="Pimiento">
+            <img src="pina.png" id="capa-pina" class="capa ingrediente" alt="Piña">
+        </div>
+    
+        <!-- 2. Botones de Ingredientes Individuales -->
+        <div class="botones-ingredientes">
+            <button onclick="toggleIngrediente('chorizo')">Chorizo</button>
+            <button onclick="toggleIngrediente('jamon')">Jamón</button>
+            <button onclick="toggleIngrediente('pepperoni')">Pepperoni</button>
+            <button onclick="toggleIngrediente('pimiento')">Pimiento</button>
+            <button onclick="toggleIngrediente('pina')">Piña</button>
+        </div>
+    </section>
+    </div>
+    </section>
+    <section id="menu">
+        <ul class="menu_lista">
+        <h2>NUESTRO MENU:</h2> 
+        <li onclick="cambiarPizza('pepperoni')">Pepperoni</li>
+        <li onclick="cambiarPizza('hawaiana')">hawaiana</li>
+        <li onclick="cambiarPizza('tres quesos')">tres quesos</li>
+    </ul>
+    </section>
+    
+    <section id="nosotros">
+        <div class="recuadro_nosotros">
+            <p>
+                En Pizzas Los 3 Pollos trabajamos todos los días
+                para ofrecer pizzas deliciosas y preparadas con
+                ingredientes de calidad.
+            </p>
+    
+            <p>
+                Nos gusta preparar cada pizza con cuidado y brindar
+                un buen servicio a nuestros clientes. Nuestro objetivo
+                es que cada persona pueda disfrutar una pizza rica,
+                recién preparada y hecha con dedicación.
+            </p>
+        </div>
+
+
+
+    </section>
+
+
+
+    
+    
+    <script>
+        function cambiarPizza(sabor){
+            let imagen = document.getElementById("pizza");
+            
+            imagen.style.opacity = "0";
+
+            setTimeout(function() {
+                if (sabor == "pepperoni") {
+                imagen.src="https://www.zoopizza.com.mx/img/carta/Pepperoni.png";
+                imagen.style.width = "70%";
+            }
+
+            if (sabor == "hawaiana") {
+                imagen.src="https://www.chefellas.com/5HAWAIANA.png";
+                imagen.style.width = "70%";
+            }
+
+            if (sabor == "tres quesos") {
+                imagen.src="https://i0.wp.com/pizzeriacherokee.es/wp-content/uploads/2019/04/cuattro-quesos.png";
+                imagen.style.width = "100%";
+            }
+
+            imagen.style.opacity = "1";
+
+                document.getElementById("inicio").scrollIntoView({
+                   behavior: "smooth"
+
+                });
+
+
+        },500);
+
+
+    }
+
+    function toggleIngrediente(nombre){
+        let capa = document.getElementById("capa-" + nombre);
+    }
+            
+
+
+
+
+
+    </script>
+</body> 
+</html>
